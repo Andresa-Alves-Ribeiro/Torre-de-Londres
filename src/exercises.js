@@ -1,0 +1,42 @@
+/**
+ * 35 alvos do protocolo (ordem da figura). Cada haste: bolas de baixo para cima.
+ */
+export const EXERCISES = [
+  [["green", "red", "blue"], [], []],
+  [["green"], ["blue", "red"], []],
+  [["green"], ["blue"], ["red"]],
+  [["green", "red"], [], ["blue"]],
+  [["green", "blue"], [], ["red"]],
+  [["green"], ["red"], ["blue"]],
+  [[], ["blue", "green"], ["red"]],
+  [[], ["blue", "red"], ["green"]],
+  [["green", "blue"], ["red"], []],
+  [["green", "blue", "red"], [], []],
+  [["green"], ["red", "blue"], []],
+  [["red"], ["blue", "green"], []],
+  [["red"], ["blue"], ["green"]],
+  [[], ["red", "green"], ["blue"]],
+  [["red", "green"], ["blue"], []],
+  [["blue"], ["red", "green"], []],
+  [[], ["red", "blue"], ["green"]],
+  [["red", "blue"], [], ["green"]],
+  [["blue", "green"], ["red"], []],
+  [["red", "blue", "green"], [], []],
+  [["red", "blue"], ["green"], []],
+  [["red", "green", "blue"], [], []],
+  [["blue"], ["red"], ["green"]],
+  [["red", "green"], [], ["blue"]],
+  [["blue", "green", "red"], [], []],
+  [["red"], ["green", "blue"], []],
+  [["red"], ["green"], ["blue"]],
+  [["blue", "red"], [], ["green"]],
+  [["blue", "green"], [], ["red"]],
+  [["blue", "red"], ["green"], []],
+  [["blue", "red", "green"], [], []],
+  [["blue"], ["green"], ["red"]],
+  [[], ["green", "blue"], ["red"]],
+  [["blue"], ["green", "red"], []],
+  [[], ["green", "red"], ["blue"]],
+];
+
+export const EXERCISE_COUNT = EXERCISES.length;

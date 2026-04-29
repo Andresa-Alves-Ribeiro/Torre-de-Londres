@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@media (max-width: 639px) {
+  #root {
+    border-inline: none;
+    max-width: none;
+  }
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+
+/* Torre de Londres — camada visual do jogo */
+.game-shell {
+  --game-glow: rgba(34, 211, 238, 0.35);
+  --game-panel: rgba(15, 23, 42, 0.65);
+}
+
+@keyframes game-ball-selected {
+  0%,
+  100% {
+    box-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.45),
+      0 0 0 2px rgba(250, 204, 21, 0.9),
+      0 0 24px rgba(250, 204, 21, 0.45);
+  }
+  50% {
+    box-shadow:
+      0 4px 18px rgba(0, 0, 0, 0.5),
+      0 0 0 3px rgba(250, 204, 21, 1),
+      0 0 36px rgba(250, 204, 21, 0.65);
+  }
+}
+
+@keyframes game-grid-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 48px 48px;
+  }
+}
+
+.game-shell-bg {
+  background-color: #0f172a;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -30%, rgba(139, 92, 246, 0.35), transparent 55%),
+    radial-gradient(ellipse 90% 60% at 100% 50%, rgba(6, 182, 212, 0.12), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 0% 80%, rgba(244, 63, 94, 0.08), transparent 45%),
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    48px 48px,
+    48px 48px;
+  animation: game-grid-drift 80s linear infinite;
+}
+
+.game-title-gradient {
+  background: linear-gradient(135deg, #f472b6 0%, #c084fc 40%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ball-selected-animate {
+  animation: game-ball-selected 1.6s ease-in-out infinite;
+}
+
+/* Evita margens globais enormes do h1 dentro do jogo em mobile */
+.game-shell h1 {
+  margin-block: 0;
+}
+
+/* Trilha de níveis: scroll horizontal suave em telas estreitas */
+.game-level-track {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.game-level-track::-webkit-scrollbar {
+  height: 4px;
+}
+
+.game-level-track::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+}
+
+/* Transição entre níveis — overlay estilo gamer */
+@keyframes level-transition-bar-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes level-transition-scan {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(48px);
+  }
+}
+
+@keyframes level-transition-text-glitch {
+  0%,
+  90%,
+  100% {
+    text-shadow:
+      0 0 20px rgba(34, 211, 238, 0.5),
+      0 0 40px rgba(217, 70, 239, 0.25);
+    opacity: 1;
+  }
+  92% {
+    text-shadow:
+      -2px 0 #f472b6,
+      2px 0 #22d3ee;
+    opacity: 0.92;
+  }
+  94% {
+    text-shadow:
+      2px 0 #22d3ee,
+      -2px 0 #f472b6;
+    opacity: 0.98;
+  }
+}
+
+@keyframes level-transition-ring-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(34, 211, 238, 0.4),
+      0 0 24px rgba(34, 211, 238, 0.2),
+      inset 0 0 32px rgba(139, 92, 246, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px rgba(244, 114, 182, 0.45),
+      0 0 40px rgba(217, 70, 239, 0.25),
+      inset 0 0 48px rgba(6, 182, 212, 0.1);
+  }
+}
+
+.level-transition-overlay {
+  animation: level-transition-ring-pulse 1s ease-in-out infinite;
+}
+
+.level-transition-bar {
+  transform-origin: left center;
+  animation: level-transition-bar-fill 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.level-transition-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+  animation: level-transition-scan 6s linear infinite;
+  pointer-events: none;
+}
+
+.level-transition-title {
+  animation: level-transition-text-glitch 1s ease-in-out infinite;
+}
