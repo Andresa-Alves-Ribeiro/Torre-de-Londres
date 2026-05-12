@@ -11,13 +11,8 @@ Aplicação web **single-page** inspirada na tarefa cognitiva **Torre de Londres
 
 ## 📸 Preview
 
-> Adicione capturas de tela na pasta `docs/images/` e substitua o exemplo abaixo pelo caminho local ou pela URL do asset.
+<img width="1374" height="1272" alt="Captura de tela 2026-05-12 202554" src="https://github.com/user-attachments/assets/ff462547-dc82-4c6c-b172-f55edab74280" />
 
-<!-- Exemplo após adicionar imagens:
-![Tela principal](docs/images/tela-principal.png)
--->
-
-*(Preview em breve — veja o projeto com `npm run dev`.)*
 
 ---
 
